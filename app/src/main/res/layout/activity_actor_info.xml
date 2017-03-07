@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_show_actor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.parse.moviesdb.ActorInfo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/actorName"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:text="Actor"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:src="@drawable/available"
+            android:layout_below="@+id/actorName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/imageViewProfile"
+            android:layout_width="150dp"
+            android:layout_height="200dp"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/birth"
+            android:layout_width="170sp"
+            android:text="Born: "
+            android:textSize="10sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/actorName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_below="@+id/birth"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/birthTextView"
+            android:layout_width="170sp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:text="-Date-"/>
+
+        <TextView
+            android:layout_below="@+id/birthTextView"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/birthplaceTextView"
+            android:layout_width="170sp"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:text="-Place-"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/knownFor"
+            android:layout_width="170sp"
+            android:text="Known for"
+            android:textSize="10sp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_below="@+id/birthplaceTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:onClick="viewMovies"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bioTextView"
+            android:layout_below="@+id/actorName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="220dp"
+            tools:textStyle="italic"
+            android:textSize="10sp"
+            android:text="Biography"/>
+
+
+
+    </RelativeLayout>
+</ScrollView>
