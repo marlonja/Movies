@@ -1,4 +1,4 @@
-package com.parse.moviesdb;
+package com.parse.movies20;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,11 +16,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import static com.parse.moviesdb.MainActivity.covers;
-import static com.parse.moviesdb.MainActivity.movieIds;
-import static com.parse.moviesdb.MainActivity.movies;
-import static com.parse.moviesdb.MainActivity.overviews;
-import static com.parse.moviesdb.MainActivity.releases;
+import static com.parse.movies20.MainActivity.covers;
+import static com.parse.movies20.MainActivity.movieIds;
+import static com.parse.movies20.MainActivity.movies;
+import static com.parse.movies20.MainActivity.overviews;
+import static com.parse.movies20.MainActivity.releases;
 
 public class ShowMovies extends AppCompatActivity {
 

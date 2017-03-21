@@ -1,4 +1,4 @@
-package com.parse.moviesdb;
+package com.parse.movies20;
 
 
 public interface AsyncResponse {

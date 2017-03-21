@@ -1,4 +1,4 @@
-package com.parse.moviesdb;
+package com.parse.movies20;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import static android.view.View.INVISIBLE;
-import static com.parse.moviesdb.MainActivity.hmap;
+import static com.parse.movies20.MainActivity.hmap;
 
 public class MovieInfo extends AppCompatActivity implements AsyncResponse {
 

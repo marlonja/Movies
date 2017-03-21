@@ -1,4 +1,4 @@
-package com.parse.moviesdb;
+package com.parse.movies20;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,21 +12,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import static com.parse.moviesdb.MainActivity.actorIds;
-import static com.parse.moviesdb.MainActivity.covers;
-import static com.parse.moviesdb.MainActivity.frontActorIds;
-import static com.parse.moviesdb.MainActivity.frontCovers;
-import static com.parse.moviesdb.MainActivity.frontMovieIds;
-import static com.parse.moviesdb.MainActivity.frontMovies;
-import static com.parse.moviesdb.MainActivity.frontOverviews;
-import static com.parse.moviesdb.MainActivity.frontPeopleCovers;
-import static com.parse.moviesdb.MainActivity.frontReleases;
-import static com.parse.moviesdb.MainActivity.movieIds;
-import static com.parse.moviesdb.MainActivity.movies;
-import static com.parse.moviesdb.MainActivity.overviews;
-import static com.parse.moviesdb.MainActivity.peopleCovers;
-import static com.parse.moviesdb.MainActivity.releases;
-import static com.parse.moviesdb.MainActivity.searchResults;
+import static com.parse.movies20.MainActivity.actorIds;
+import static com.parse.movies20.MainActivity.covers;
+import static com.parse.movies20.MainActivity.frontActorIds;
+import static com.parse.movies20.MainActivity.frontCovers;
+import static com.parse.movies20.MainActivity.frontMovieIds;
+import static com.parse.movies20.MainActivity.frontMovies;
+import static com.parse.movies20.MainActivity.frontOverviews;
+import static com.parse.movies20.MainActivity.frontPeopleCovers;
+import static com.parse.movies20.MainActivity.frontReleases;
+import static com.parse.movies20.MainActivity.movieIds;
+import static com.parse.movies20.MainActivity.movies;
+import static com.parse.movies20.MainActivity.overviews;
+import static com.parse.movies20.MainActivity.peopleCovers;
+import static com.parse.movies20.MainActivity.releases;
+import static com.parse.movies20.MainActivity.searchResults;
 
 public class SearchHandling {
 

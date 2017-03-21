@@ -1,4 +1,4 @@
-package com.parse.moviesdb;
+package com.parse.movies20;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,9 +16,9 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import static com.parse.moviesdb.MainActivity.actorIds;
-import static com.parse.moviesdb.MainActivity.movies;
-import static com.parse.moviesdb.MainActivity.searchResults;
+import static com.parse.movies20.MainActivity.actorIds;
+import static com.parse.movies20.MainActivity.movies;
+import static com.parse.movies20.MainActivity.searchResults;
 
 public class SearchResults extends AppCompatActivity {
 
