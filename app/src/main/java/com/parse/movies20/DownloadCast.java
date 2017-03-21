@@ -1,15 +1,7 @@
 package com.parse.moviesdb;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,10 +9,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
-
-public class DownloadTask extends AsyncTask<String, Void, String> {
+public class DownloadCast extends AsyncTask<String, Void, String> {
+    public AsyncResponse delegate = null;
 
     @Override
     protected String doInBackground(String... urls) {
@@ -61,5 +52,8 @@ public class DownloadTask extends AsyncTask<String, Void, String> {
         return null;
     }
 
-
+    @Override
+    protected void onPostExecute(String result) {
+        delegate.processFinish(result);
+    }
 }

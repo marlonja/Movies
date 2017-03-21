@@ -1,4 +1,4 @@
-package com.parse.movies20;
+package com.parse.moviesdb;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,14 +12,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import static com.parse.movies20.MainActivity.actorIds;
-import static com.parse.movies20.MainActivity.covers;
-import static com.parse.movies20.MainActivity.movieIds;
-import static com.parse.movies20.MainActivity.movies;
-import static com.parse.movies20.MainActivity.overviews;
-import static com.parse.movies20.MainActivity.peopleCovers;
-import static com.parse.movies20.MainActivity.releases;
-import static com.parse.movies20.MainActivity.searchResults;
+import static com.parse.moviesdb.MainActivity.actorIds;
+import static com.parse.moviesdb.MainActivity.covers;
+import static com.parse.moviesdb.MainActivity.frontActorIds;
+import static com.parse.moviesdb.MainActivity.frontCovers;
+import static com.parse.moviesdb.MainActivity.frontMovieIds;
+import static com.parse.moviesdb.MainActivity.frontMovies;
+import static com.parse.moviesdb.MainActivity.frontOverviews;
+import static com.parse.moviesdb.MainActivity.frontPeopleCovers;
+import static com.parse.moviesdb.MainActivity.frontReleases;
+import static com.parse.moviesdb.MainActivity.movieIds;
+import static com.parse.moviesdb.MainActivity.movies;
+import static com.parse.moviesdb.MainActivity.overviews;
+import static com.parse.moviesdb.MainActivity.peopleCovers;
+import static com.parse.moviesdb.MainActivity.releases;
+import static com.parse.moviesdb.MainActivity.searchResults;
 
 public class SearchHandling {
 
@@ -36,18 +43,7 @@ public class SearchHandling {
         String formattedQuery;
         boolean personExists;
 
-        if (query.contains(" ")) {
-
-            String[] parts = query.split(" ");
-            String firstWord = parts[0];
-            String secondWord = parts[1];
-            formattedQuery = firstWord + "+" + secondWord;
-
-        } else {
-
-            formattedQuery = query;
-
-        }
+        formattedQuery = query.replace(" ", "+");
 
         try {
 
@@ -244,9 +240,57 @@ public class SearchHandling {
 
     }
 
+    public void processMoviesFrontPage(String result) {
+        frontMovies = new ArrayList<>();
+        frontCovers = new ArrayList<>();
+        frontReleases = new ArrayList<>();
+        frontOverviews = new ArrayList<>();
+        frontMovieIds = new ArrayList<>();
+
+        String title;
+        String release;
+        String cover;
+        String overview;
+        String movieId;
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(result);
+
+            String results = jsonObject.getString("results");
+
+            JSONArray arr = new JSONArray(results);
+
+            for (int i = 0; i < arr.length(); i++) {
+
+                JSONObject jsonPart = arr.getJSONObject(i);
+
+                title = jsonPart.getString("original_title");
+                frontMovies.add(title);
+
+                cover = "http://image.tmdb.org/t/p/w780" + jsonPart.getString("poster_path");
+                frontCovers.add(cover);
+
+                release = jsonPart.getString("release_date");
+                frontReleases.add(release);
+
+                overview = jsonPart.getString("overview");
+                frontOverviews.add(overview);
+
+                movieId = jsonPart.getString("id");
+                frontMovieIds.add(movieId);
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void processPeopleCredits(String result) {
-        peopleCovers = new ArrayList<>();
-        actorIds = new ArrayList<>();
+        frontPeopleCovers = new ArrayList<>();
+        frontActorIds = new ArrayList<>();
         String peopleCover;
         String actorId;
 
@@ -264,10 +308,10 @@ public class SearchHandling {
                 JSONObject jsonPart = arr.getJSONObject(i);
 
                 peopleCover = "http://image.tmdb.org/t/p/w780" + jsonPart.getString("profile_path");
-                peopleCovers.add(peopleCover);
+                frontPeopleCovers.add(peopleCover);
 
                 actorId = jsonPart.getString("id");
-                actorIds.add(actorId);
+                frontActorIds.add(actorId);
 
             }
 

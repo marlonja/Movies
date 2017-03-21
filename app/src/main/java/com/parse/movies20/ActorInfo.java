@@ -1,9 +1,10 @@
-package com.parse.movies20;
+package com.parse.moviesdb;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,11 +21,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import static com.parse.movies20.MainActivity.covers;
-import static com.parse.movies20.MainActivity.movieIds;
-import static com.parse.movies20.MainActivity.movies;
-import static com.parse.movies20.MainActivity.overviews;
-import static com.parse.movies20.MainActivity.releases;
+import static com.parse.moviesdb.MainActivity.covers;
+import static com.parse.moviesdb.MainActivity.movieIds;
+import static com.parse.moviesdb.MainActivity.movies;
+import static com.parse.moviesdb.MainActivity.overviews;
+import static com.parse.moviesdb.MainActivity.releases;
 
 public class ActorInfo extends AppCompatActivity {
 
@@ -92,7 +93,17 @@ public class ActorInfo extends AppCompatActivity {
             cover = "http://image.tmdb.org/t/p/w780" + jsonObject.getString("profile_path");
 
             actorName.setText(name);
-            bioTextView.setText(bio);
+
+            if (bio == "null") {
+
+                bioTextView.setText("");
+
+            } else {
+
+                bioTextView.setText(bio);
+
+            }
+
             birthTextView.setText(birthday);
             birthplaceTextView.setText(birthplace);
 
@@ -257,6 +268,13 @@ public class ActorInfo extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+
+                return true;
+
+            case R.id.about:
+
+                Intent secondIntent = new Intent(getApplicationContext(), AboutUs.class);
+                startActivity(secondIntent);
 
                 return true;
 

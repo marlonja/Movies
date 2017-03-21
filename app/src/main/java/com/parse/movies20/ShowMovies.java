@@ -1,22 +1,26 @@
-package com.parse.movies20;
+package com.parse.moviesdb;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
-import static com.parse.movies20.MainActivity.covers;
-import static com.parse.movies20.MainActivity.movieIds;
-import static com.parse.movies20.MainActivity.movies;
-import static com.parse.movies20.MainActivity.overviews;
-import static com.parse.movies20.MainActivity.releases;
+import static com.parse.moviesdb.MainActivity.covers;
+import static com.parse.moviesdb.MainActivity.movieIds;
+import static com.parse.moviesdb.MainActivity.movies;
+import static com.parse.moviesdb.MainActivity.overviews;
+import static com.parse.moviesdb.MainActivity.releases;
 
 public class ShowMovies extends AppCompatActivity {
 
@@ -29,7 +33,17 @@ public class ShowMovies extends AppCompatActivity {
 
         ListView listViewSearch = (ListView)findViewById(R.id.listViewSearch);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movies);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, movies){
+
+            @NonNull
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text = (TextView) view.findViewById(android.R.id.text1);
+                text.setTextColor(Color.WHITE);
+                return view;
+            }
+        };
 
         listViewSearch.setAdapter(arrayAdapter);
 
@@ -94,6 +108,13 @@ public class ShowMovies extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+
+                return true;
+
+            case R.id.about:
+
+                Intent secondIntent = new Intent(getApplicationContext(), AboutUs.class);
+                startActivity(secondIntent);
 
                 return true;
 

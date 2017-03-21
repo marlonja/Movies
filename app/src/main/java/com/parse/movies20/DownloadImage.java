@@ -1,4 +1,4 @@
-package com.parse.movies20;
+package com.parse.moviesdb;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,9 +10,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by jakob on 2017-01-20.
- */
 
 public class DownloadImage extends AsyncTask<String, Void, Bitmap> {
 

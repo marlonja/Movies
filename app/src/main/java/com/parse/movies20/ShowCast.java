@@ -16,22 +16,24 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import static com.parse.moviesdb.MainActivity.actorIds;
-import static com.parse.moviesdb.MainActivity.movies;
-import static com.parse.moviesdb.MainActivity.searchResults;
+import java.util.ArrayList;
 
-public class SearchResults extends AppCompatActivity {
+public class ShowCast extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_results);
+        setContentView(R.layout.activity_show_cast);
 
-        setTitle("Search results");
+        setTitle("");
 
-        ListView listViewResults = (ListView)findViewById(R.id.listViewResults);
+        ListView listViewCast = (ListView)findViewById(R.id.listViewCast);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, searchResults){
+        Intent intent = getIntent();
+        ArrayList<String> names = intent.getStringArrayListExtra("names");
+        final ArrayList<String> actorIds = intent.getStringArrayListExtra("actorIds");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names){
 
             @NonNull
             @Override
@@ -43,9 +45,9 @@ public class SearchResults extends AppCompatActivity {
             }
         };
 
-        listViewResults.setAdapter(arrayAdapter);
+        listViewCast.setAdapter(arrayAdapter);
 
-        listViewResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewCast.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -55,9 +57,9 @@ public class SearchResults extends AppCompatActivity {
 
                 startActivity(intent);
 
-
             }
         });
+
     }
 
     @Override
@@ -73,7 +75,7 @@ public class SearchResults extends AppCompatActivity {
 
                 if (query != "") {
 
-                    SearchHandling handling = new SearchHandling(SearchResults.this);
+                    SearchHandling handling = new SearchHandling(ShowCast.this);
 
                     handling.search(query);
 
@@ -118,4 +120,5 @@ public class SearchResults extends AppCompatActivity {
         }
 
     }
+
 }
